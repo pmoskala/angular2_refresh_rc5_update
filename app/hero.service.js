@@ -13,6 +13,10 @@ var HeroService = (function () {
             return setTimeout(function () { return resolve(mock_heroes_1.HEROES); }, 2000);
         });
     };
+    HeroService.prototype.getHero = function (id) {
+        return this.getHeroes()
+            .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
+    };
     return HeroService;
 }());
 exports.HeroService = HeroService;
